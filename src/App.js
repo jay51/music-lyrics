@@ -1,31 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import{Provider} from "./context";
+import { Provider } from "./context";
 
 import Index from "./compontnet/Index";
 import Navbar from "./compontnet/Navbar";
-import './App.css';
+import Lyrics from "./compontnet/tracks/Lyrics";
+import "./App.css";
 
 class App extends Component {
-  render() {
-    return (
-      <Provider>
-        <Router>
-          <React.Fragment>
-            <Navbar/>
-
-
-            <div className="container">
-              <Switch>
-                <Route exact path="/" component={Index}/>
-              </Switch>
-            </div>
-
-          </React.Fragment>
-        </Router>
-      </Provider>
-    );
-  }
+	render() {
+		return (
+			<Provider>
+				<Router>
+					<React.Fragment>
+						<Navbar />
+						<div className="container">
+							<Switch>
+								<Route exact path="/" component={Index} />
+								<Route exact path="/lyrics/track/:id" component={Lyrics} />
+							</Switch>
+						</div>
+					</React.Fragment>
+				</Router>
+			</Provider>
+		);
+	}
 }
 
 export default App;
